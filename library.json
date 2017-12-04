@@ -1,0 +1,16 @@
+{
+  "title": "Rubric Editor",
+  "description": "Rubric Editor",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 0,
+  "author": "Pjotr Savitski",
+  "license": "MIT",
+  "machineName": "H5PEditor.Rubric",
+  "preloadedJs": [
+    {
+      "path": "scripts/indes.js"
+    }
+  ]
+}
