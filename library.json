@@ -10,7 +10,19 @@
   "machineName": "H5PEditor.Rubric",
   "preloadedJs": [
     {
-      "path": "scripts/indes.js"
+      "path": "scripts/index.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "styles/main.css"
+    }
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 4,
+      "minorVersion": 5
     }
   ]
 }

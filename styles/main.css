@@ -1,0 +1,45 @@
+.h5p-grid-rubric .h5p-rubric-editor-responsive {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.h5p-grid-rubric table.h5p-rubric {
+  border: 1px solid #d0d0d1;
+}
+
+.h5p-grid-rubric table.h5p-rubric th {
+  min-width: 200px;
+}
+
+.h5p-grid-rubric table.h5p-rubric th.grid-column,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row > td:first-child {
+  text-align: center;
+}
+
+.h5p-grid-rubric table.h5p-rubric th.grid-column .actions > .h5peditor-button,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row .actions > .h5peditor-button {
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.h5p-grid-rubric table.h5p-rubric th.grid-column .actions > .h5peditor-button.move-left,
+.h5p-grid-rubric table.h5p-rubric th.grid-column .actions > .h5peditor-button.move-right,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row .actions > .h5peditor-button.move-up,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row .actions > .h5peditor-button.move-down {
+  color: blue;
+}
+
+.h5p-grid-rubric table.h5p-rubric th.grid-column .actions > .h5peditor-button.remove,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row .actions > .h5peditor-button.remove {
+  color: red;
+}
+
+.h5p-grid-rubric table.h5p-rubric th.grid-column .actions,
+.h5p-grid-rubric table.h5p-rubric tr.grid-row .actions {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
