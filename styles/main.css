@@ -4,7 +4,15 @@
 }
 
 .h5p-grid-rubric table.h5p-rubric {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.h5p-grid-rubric table.h5p-rubric,
+.h5p-grid-rubric table.h5p-rubric tr th,
+.h5p-grid-rubric table.h5p-rubric tr td {
   border: 1px solid #d0d0d1;
+  padding: 5px;
 }
 
 .h5p-grid-rubric table.h5p-rubric th {
