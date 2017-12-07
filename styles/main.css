@@ -43,3 +43,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.h5p-grid-rubric table.h5p-rubric > thead th.grid-column:nth-child(2) .actions .h5peditor-button.move-left,
+.h5p-grid-rubric table.h5p-rubric > thead th.grid-column:last-child .actions .h5peditor-button.move-right,
+.h5p-grid-rubric table.h5p-rubric > thead th.grid-column:nth-child(2):last-child .actions .h5peditor-button.remove,
+.h5p-grid-rubric table.h5p-rubric > tbody tr.grid-row:first-child .actions .h5peditor-button.move-up,
+.h5p-grid-rubric table.h5p-rubric > tbody tr.grid-row:last-child .actions .h5peditor-button.move-down,
+.h5p-grid-rubric table.h5p-rubric > tbody tr.grid-row:only-child .actions .h5peditor-button.remove {
+  display: none;
+}
