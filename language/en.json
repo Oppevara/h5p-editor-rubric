@@ -1,0 +1,19 @@
+{
+  "libraryStrings": {
+    "criteriaTopic": "Criteria/Topic",
+    "columnHeading": "Column Heading",
+    "proficient": "Proficient",
+    "emerging": "Emerging",
+    "beginning": "Beginning",
+    "editMe": "Edit Me",
+    "addRow": "Add Row",
+    "addColumn": "Add Column",
+    "moveLeft": "Move Left",
+    "moveRight": "Move Right",
+    "moveUp": "Move Up",
+    "moveDown": "Move Down",
+    "remove": "Remove",
+    "deleteColumnConfirm": "Are you sure you want to delete this column?",
+    "deleteRowConfirm": "Are you sure you want to delete this row?"
+  }
+}
