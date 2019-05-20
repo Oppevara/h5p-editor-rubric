@@ -614,7 +614,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @return {void}
    */
   Rubric.prototype.remove = function() {
-    $wrapper.remove();
+    this.$container.remove();
   };
 
   return Rubric;
