@@ -4,7 +4,7 @@
 
 var H5PEditor = H5PEditor || {};
 
-H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
+H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($) {
   /**
    * Constructor function
    * @param       {object}   parent   Parent representation
@@ -26,8 +26,8 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Preset default values if empty
    * @return {void}
    */
-  Rubric.prototype.presetDefaultValues = function() {
-    if ( !( this.params && typeof this.params === 'object' ) ) {
+  Rubric.prototype.presetDefaultValues = function () {
+    if (!(this.params && typeof this.params === 'object')) {
       this.params = {
         rows: [
           {
@@ -73,19 +73,19 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {mixed} value    Value to use for comparison
    * @return {integer}        Element index or -1
    */
-  Rubric.prototype._findIndex = function(elements, key, value) {
-    if ( !( elements && elements.length > 0 ) ) {
+  Rubric.prototype._findIndex = function (elements, key, value) {
+    if (!(elements && elements.length > 0)) {
       return -1;
     }
 
-    if ( typeof elements.findIndex === 'function' ) {
-      return elements.findIndex(function(element) {
+    if (typeof elements.findIndex === 'function') {
+      return elements.findIndex(function (element) {
         return element[key] == value;
       });
     }
 
-    for ( var i = 0; i < elements.length; i++ ) {
-      if ( elements[i][key] == value ) {
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i][key] == value) {
         return i;
       }
     }
@@ -102,19 +102,19 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {mixed} value    Value to use for comparison
    * @return {object}         Element or undefined
    */
-  Rubric.prototype._find = function(elements, key, value) {
-    if ( !( elements && elements.length > 0 ) ) {
+  Rubric.prototype._find = function (elements, key, value) {
+    if (!(elements && elements.length > 0)) {
       return undefined;
     }
 
-    if ( typeof elements.find === 'function' ) {
-      return elements.find(function(element) {
+    if (typeof elements.find === 'function') {
+      return elements.find(function (element) {
         return element[key] == value;
       });
     }
 
-    for ( var i = 0; i < elements.length; i++ ) {
-      if ( elements[i][key] == value ) {
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i][key] == value) {
         return elements[i];
       }
     }
@@ -126,7 +126,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Returns columns based on the data object
    * @return {array} An array column objects
    */
-  Rubric.prototype.getColumns = function() {
+  Rubric.prototype.getColumns = function () {
     return this.params.columns;
   };
 
@@ -135,7 +135,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {integer}       Index or -1
    */
-  Rubric.prototype.findColumnIndex = function(column) {
+  Rubric.prototype.findColumnIndex = function (column) {
     return this._findIndex(this.getColumns(), 'columnId', column.columnId);
   };
 
@@ -143,7 +143,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Returns rows based on the data object
    * @return {array} An array of row objects
    */
-  Rubric.prototype.getRows = function() {
+  Rubric.prototype.getRows = function () {
     return this.params.rows;
   };
 
@@ -152,7 +152,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {integer}    Index or -1
    */
-  Rubric.prototype.findRowIndex = function(row) {
+  Rubric.prototype.findRowIndex = function (row) {
     return this._findIndex(this.getRows(), 'rowId', row.rowId);
   };
 
@@ -162,13 +162,13 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {string}        Value or an empty string
    */
-  Rubric.prototype.getRowColumnText = function(row, column) {
+  Rubric.prototype.getRowColumnText = function (row, column) {
     var text = '';
 
-    if ( row && row.hasOwnProperty('columns') && row.columns.length > 0 ) {
+    if (row && Object.prototype.hasOwnProperty.call(row, 'columns') && row.columns.length > 0) {
       var found = this._find(row.columns, 'columnId', column.columnId);
 
-      if ( found && found.hasOwnProperty('text') ) {
+      if (found && Object.prototype.hasOwnProperty.call(found, 'text')) {
         return found.text;
       }
     }
@@ -181,7 +181,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {array}         An array of DOM Nodes
    */
-  Rubric.prototype.generateTableColumnHeadingButtonsHtml = function(column) {
+  Rubric.prototype.generateTableColumnHeadingButtonsHtml = function (column) {
     var self = this;
     return $('<div>', {
       'class': 'actions'
@@ -194,7 +194,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-arrow-left',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.moveColumnLeft(column);
     })).append($('<div>', {
       'class': 'h5peditor-button remove',
@@ -205,7 +205,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-times',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.removeColumn(column);
     })).append($('<div>', {
       'class': 'h5peditor-button move-right',
@@ -216,7 +216,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-arrow-right',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.moveColumnRight(column);
     }));
   };
@@ -226,7 +226,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {array}      An array of DOM Nodes
    */
-  Rubric.prototype.generateTableRowButtonsHtml = function(row) {
+  Rubric.prototype.generateTableRowButtonsHtml = function (row) {
     var self = this;
     return $('<div>', {
       'class': 'actions'
@@ -239,7 +239,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-arrow-up',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.moveRowUp(row);
     })).append($('<div>', {
       'class': 'h5peditor-button remove',
@@ -250,7 +250,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-times',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.removeRow(row);
     })).append($('<div>', {
       'class': 'h5peditor-button move-down',
@@ -261,7 +261,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     }).append($('<i>', {
       'class': 'fa fa-arrow-down',
       'aria-hidden': 'true'
-    })).on('click', function() {
+    })).on('click', function () {
       self.moveRowDown(row);
     }));
   };
@@ -271,7 +271,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {array}     An array with DOM Node
    */
-  Rubric.prototype.generateTableRowHtml = function(row) {
+  Rubric.prototype.generateTableRowHtml = function (row) {
     var self = this;
     var tr = $('<tr>', {
       'class': 'grid-row',
@@ -284,7 +284,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
       placeholder: H5PEditor.t('H5PEditor.Rubric', 'criteriaTopic', {})
     })).append(this.generateTableRowButtonsHtml(row)).appendTo(tr);
 
-    $.each(self.getColumns(), function(index, column) {
+    $.each(self.getColumns(), function (index, column) {
       tr.append(self.generateTableRowColumnHtml(column, row));
     });
 
@@ -296,7 +296,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {array}         An array with DOM Node
    */
-  Rubric.prototype.generateTableColumnHeadingHtml = function(column) {
+  Rubric.prototype.generateTableColumnHeadingHtml = function (column) {
     return $('<th>', {
       'class': 'grid-column',
       'data-id': column.columnId,
@@ -314,10 +314,10 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object=} row   Row object (optional)
    * @return {array}        An array with DOM Node
    */
-  Rubric.prototype.generateTableRowColumnHtml = function(column, row) {
+  Rubric.prototype.generateTableRowColumnHtml = function (column, row) {
     var text = '';
 
-    if ( row ) {
+    if (row) {
       text = this.getRowColumnText(row, column);
     }
 
@@ -334,7 +334,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Generates grid table and appends to responsive container
    * @return {void}
    */
-  Rubric.prototype.createGrid = function() {
+  Rubric.prototype.createGrid = function () {
     var self = this;
     var table = $('<table>', {
       'class': 'h5p-rubric grid'
@@ -343,13 +343,13 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     $('<tr>').appendTo(table.find('thead'));
     $('<th>').appendTo(table.find('thead > tr'));
 
-    $.each(self.getColumns(), function(index, column) {
+    $.each(self.getColumns(), function (index, column) {
       table.find('thead > tr').append(self.generateTableColumnHeadingHtml(column));
     });
 
     $('<tbody>').appendTo(table);
 
-    $.each(self.getRows(), function(index, row) {
+    $.each(self.getRows(), function (index, row) {
       table.find('tbody').append(self.generateTableRowHtml(row));
     });
 
@@ -360,7 +360,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Creates buttons and appends to container
    * @return {void}
    */
-  Rubric.prototype.createButtons = function() {
+  Rubric.prototype.createButtons = function () {
     var self = this;
     var $container = $('<div>');
 
@@ -370,7 +370,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
       'tabindex': '0',
       'aria-disabled': 'false',
       'text': H5PEditor.t('H5PEditor.Rubric', 'addRow', {})
-    }).on('click', function() {
+    }).on('click', function () {
       self.addRow();
     }).appendTo($container);
 
@@ -380,7 +380,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
       'tabindex': '0',
       'aria-disabled': 'false',
       'text': H5PEditor.t('H5PEditor.Rubric', 'addColumn', {})
-    }).on('click', function() {
+    }).on('click', function () {
       self.addColumn();
     }).appendTo($container);
 
@@ -391,7 +391,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Adds new column to both data object and DOM
    * @return {void}
    */
-  Rubric.prototype.addColumn = function() {
+  Rubric.prototype.addColumn = function () {
     var column = {
       columnId: H5P.createUUID(),
       columnText: ''
@@ -407,7 +407,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Adds new row ro both data object and DOM
    * @return {void}
    */
-  Rubric.prototype.addRow = function() {
+  Rubric.prototype.addRow = function () {
     var row = {
       rowId: H5P.createUUID(),
       rowText: ''
@@ -423,10 +423,10 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {void}
    */
-  Rubric.prototype.moveColumnLeft = function(column) {
+  Rubric.prototype.moveColumnLeft = function (column) {
     var index = this.findColumnIndex(column);
 
-    if ( index === 0 ) {
+    if (index === 0) {
       return;
     }
 
@@ -435,7 +435,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     var th = this.$container.find('table.h5p-rubric thead th[data-id="' + column.columnId + '"]');
     var prevTh = th.prev();
     th.detach().insertBefore(prevTh);
-    this.$container.find('table.h5p-rubric > tbody td.grid-row-column[data-id="' + column.columnId + '"]').each(function(index, element) {
+    this.$container.find('table.h5p-rubric > tbody td.grid-row-column[data-id="' + column.columnId + '"]').each(function (index, element) {
       var prevElement = $(element).prev();
       $(element).detach().insertBefore(prevElement);
     });
@@ -448,12 +448,12 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {void}
    */
-  Rubric.prototype.removeColumn = function(column) {
-    if ( this.getColumns().length === 1 ) {
+  Rubric.prototype.removeColumn = function (column) {
+    if (this.getColumns().length === 1) {
       return;
     }
 
-    if ( confirm(H5PEditor.t('H5PEditor.Rubric', 'deleteColumnConfirm', {})) ) {
+    if (confirm(H5PEditor.t('H5PEditor.Rubric', 'deleteColumnConfirm', {}))) {
       var index = this.findColumnIndex(column);
       this.getColumns().splice(index, 1);
       this.$container.find('table.h5p-rubric > thead th.grid-column[data-id="' + column.columnId + '"]').remove();
@@ -468,10 +468,10 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} column Column object
    * @return {void}
    */
-  Rubric.prototype.moveColumnRight = function(column) {
+  Rubric.prototype.moveColumnRight = function (column) {
     var index = this.findColumnIndex(column);
 
-    if ( index === this.getColumns().length - 1 ) {
+    if (index === this.getColumns().length - 1) {
       return;
     }
 
@@ -480,7 +480,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
     var th = this.$container.find('table.h5p-rubric > thead th[data-id="' + column.columnId + '"]');
     var nextTh = th.next();
     th.detach().insertAfter(nextTh);
-    this.$container.find('table.h5p-rubric > tbody td.grid-row-column[data-id="' + column.columnId + '"]').each(function(index, element) {
+    this.$container.find('table.h5p-rubric > tbody td.grid-row-column[data-id="' + column.columnId + '"]').each(function (index, element) {
       var nextElement = $(element).next();
       $(element).detach().insertAfter(nextElement);
     });
@@ -493,10 +493,10 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {void}
    */
-  Rubric.prototype.moveRowUp = function(row) {
+  Rubric.prototype.moveRowUp = function (row) {
     var index = this.findRowIndex(row);
 
-    if ( index === 0 ) {
+    if (index === 0) {
       return;
     }
 
@@ -514,12 +514,12 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {void}
    */
-  Rubric.prototype.removeRow = function(row) {
-    if ( this.getRows().length === 1 ) {
+  Rubric.prototype.removeRow = function (row) {
+    if (this.getRows().length === 1) {
       return;
     }
 
-    if ( confirm(H5PEditor.t('H5PEditor.Rubric', 'deleteRowConfirm', {})) ) {
+    if (confirm(H5PEditor.t('H5PEditor.Rubric', 'deleteRowConfirm', {}))) {
       var index = this.findRowIndex(row);
       this.getRows().splice(index, 1);
       this.$container.find('table.h5p-rubric > tbody tr.grid-row[data-id="' + row.rowId + '"]').remove();
@@ -533,10 +533,10 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} row Row object
    * @return {void}
    */
-  Rubric.prototype.moveRowDown = function(row) {
+  Rubric.prototype.moveRowDown = function (row) {
     var index = this.findRowIndex(row);
 
-    if ( index === this.getRows().length - 1 ) {
+    if (index === this.getRows().length - 1) {
       return;
     }
 
@@ -553,7 +553,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * @param  {object} $wrapper DOM node of container element
    * @return {void}
    */
-  Rubric.prototype.appendTo = function($wrapper) {
+  Rubric.prototype.appendTo = function ($wrapper) {
     var self = this;
 
     self.$container = $('<div>', {
@@ -574,20 +574,20 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Does not really do any validation.
    * @return {boolean} Always returns true
    */
-  Rubric.prototype.validate = function() {
+  Rubric.prototype.validate = function () {
     var data = {
       rows: [],
       columns: []
     };
 
-    this.$container.find('table.h5p-rubric > tbody tr.grid-row').each(function(index, element) {
+    this.$container.find('table.h5p-rubric > tbody tr.grid-row').each(function (index, element) {
       var rowData = {
         rowId: $(element).data('id'),
         rowText: $(element).find('input[type="text"]').val(),
-        columns:[]
+        columns: []
       };
 
-      $(element).find('td.grid-row-column').each(function(index, element) {
+      $(element).find('td.grid-row-column').each(function (index, element) {
         rowData.columns.push({
           columnId: $(element).data('id'),
           text: $(element).find('textarea').val()
@@ -597,7 +597,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
       data.rows.push(rowData);
     });
 
-    this.$container.find('table.h5p-rubric > thead > tr > th.grid-column').each(function(index, element) {
+    this.$container.find('table.h5p-rubric > thead > tr > th.grid-column').each(function (index, element) {
       data.columns.push({
         columnId: $(element).data('id'),
         columnText: $(element).find('input[type="text"]').val()
@@ -613,7 +613,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function($) {
    * Handles element removal
    * @return {void}
    */
-  Rubric.prototype.remove = function() {
+  Rubric.prototype.remove = function () {
     this.$container.remove();
   };
 
