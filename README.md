@@ -1,5 +1,18 @@
 # H5P Editor Rubric
 
+Rubric is a scoring guide used by instructors to evaluate and assess student work based on a set of predetermined
+criteria. It is a tool that outlines the expectations for a particular assignment or project and helps to standardize
+the grading process by ensuring that all students are evaluated on the same criteria.
+
+A rubric typically consists of a list of specific performance indicators, along with corresponding descriptions and
+scoring guidelines for each level of achievement. The indicators can vary depending on the assignment or project and can
+range from technical skills to critical thinking and creativity. The rubric provides students with clear expectations
+for their work and helps them understand how they will be evaluated.
+
+Rubrics can be used to assess a variety of different assignments, including essays, research papers, presentations, and
+group projects. They are beneficial for both instructors and students as they provide an objective and transparent way
+to assess student work, making the grading process more fair and consistent.
+
 ## License
 
 MIT License
