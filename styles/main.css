@@ -60,3 +60,21 @@
 .h5p-grid-rubric table.h5p-rubric > tbody tr.grid-row:only-child .actions .h5peditor-button.remove {
   display: none;
 }
+
+.h5p-grid-rubric .help-button {
+  padding: 0.217rem 0.5rem 0.217rem 0.5rem;
+  border: 1px solid #b6cada;
+  border-radius: 4px;
+  background: linear-gradient(#fff, #deeaf1);
+  color: #356593;
+  margin: 0 0.217rem 0 0.217rem;
+}
+
+.h5p-grid-rubric .help-button:hover {
+  background: linear-gradient(#f3f8fb, #cee5f3);
+  border-color: #6d9fce;
+}
+
+.h5p-grid-rubric .joubel-help-text-dialog-container {
+  margin-top: 2.5rem;
+}

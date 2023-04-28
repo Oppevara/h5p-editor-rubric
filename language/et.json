@@ -14,6 +14,11 @@
     "moveDown": "Liiguta alla",
     "remove": "Eemalda",
     "deleteColumnConfirm": "Oled Sa kindel, et soovid selle veeru kustutada?",
-    "deleteRowConfirm": "Oled Sa kindel, et soovid selle rea kustutada?"
+    "deleteRowConfirm": "Oled Sa kindel, et soovid selle rea kustutada?",
+    "additionalInformation": "Lisainfo",
+    "contentHelpPage": "Sisu veebileht",
+    "helpText1": "Rubric on hindamisjuhend, mida õpetajad kasutavad õpilaste tööde hindamiseks eelnevalt kindlaksmääratud kriteeriumide alusel. Rubric kirjeldab ootuseid konkreetsele ülesandele või projektile ja aitab ühtlustada hindamisprotsessi, tagades, et kõiki õpilasi hinnatakse samade kriteeriumide alusel.",
+    "helpText2": "Rubric koosneb tavaliselt konkreetsete tulemusnäitajate loetelust koos vastavate kirjelduste ja hindamisjuhistega iga saavutustaseme kohta. Näitajad võivad sõltuvalt ülesandest või projektist erineda ja ulatuda tehnilistest oskustest kriitilise mõtlemise ja loovuseni. Rubric annab õpilastele selged ootused nende tööle ja aitab neil mõista, kuidas neid hinnatakse",
+    "helpText3": "Rubricuid saab kasutada erinevate ülesannete, sealhulgas esseede, uurimistööde, esitluste ja rühmatööde hindamiseks. Need on kasulikud nii õppejõududele kui ka õpilastele, kuna pakuvad objektiivset ja läbipaistvat viisi õpilaste tööde hindamiseks, muutes hindamisprotsessi õiglasemaks ja ühtlasemaks."
   }
 }

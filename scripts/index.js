@@ -4,7 +4,7 @@
 
 var H5PEditor = H5PEditor || {};
 
-H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($) {
+H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
   /**
    * Constructor function
    * @param       {object}   parent   Parent representation
@@ -335,13 +335,50 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($) {
    * @return {void}
    */
   Rubric.prototype.createGrid = function () {
+    var helpText = H5PEditor.t('H5PEditor.Rubric', 'helpText1', {});
+    helpText += '<br><br>';
+    helpText += H5PEditor.t('H5PEditor.Rubric', 'helpText2', {});
+    helpText += '<br><br>';
+    helpText += H5PEditor.t('H5PEditor.Rubric', 'helpText3', {});
+
     var self = this;
     var table = $('<table>', {
       'class': 'h5p-rubric grid'
     });
     $('<thead>').appendTo(table);
     $('<tr>').appendTo(table.find('thead'));
-    $('<th>').appendTo(table.find('thead > tr'));
+    $('<th>')
+      .append(
+        $('<a>', {
+          'href': 'https://h5p.ee/h5p-mallid/rubric/',
+          'class': 'help-button',
+          'target': '_blank',
+          'title': H5PEditor.t('H5PEditor.Rubric', 'additionalInformation', {}),
+          'aria-disabled': 'false',
+          'aria-label': H5PEditor.t('H5PEditor.Rubric', 'additionalInformation', {}),
+          'on': {
+            'click': function (event) {
+              event.preventDefault();
+              JoubelUI.createHelpTextDialog('Rubric', helpText)
+                .getElement()
+                .appendTo(self.$container);
+            }
+          }
+        })
+          .append('<i class="fa fa-question" aria-hidden="true"></i>')
+      )
+      .append(
+        $('<a>', {
+          'href': 'https://h5p.ee/h5p-mallid/rubric/',
+          'class': 'help-button',
+          'target': '_blank',
+          'title': H5PEditor.t('H5PEditor.Rubric', 'contentHelpPage', {}),
+          'aria-disabled': 'false',
+          'aria-label': H5PEditor.t('H5PEditor.Rubric', 'contentHelpPage', {})
+        })
+          .append('<i class="fa fa-external-link" aria-hidden="true"></i>')
+      )
+      .appendTo(table.find('thead > tr'));
 
     $.each(self.getColumns(), function (index, column) {
       table.find('thead > tr').append(self.generateTableColumnHeadingHtml(column));
@@ -618,4 +655,4 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($) {
   };
 
   return Rubric;
-})(H5P.jQuery);
+})(H5P.jQuery, H5P.JoubelUI);
