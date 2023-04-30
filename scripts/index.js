@@ -5,6 +5,8 @@
 var H5PEditor = H5PEditor || {};
 
 H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
+  var domParser = new DOMParser();
+
   /**
    * Constructor function
    * @param       {object}   parent   Parent representation
@@ -20,6 +22,20 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
     this.setValue = setValue;
 
     this.presetDefaultValues();
+  }
+
+  /**
+   * Unescapes a textual content escaped by PHP htmlentities function.
+   * Solution taken from https://stackoverflow.com/a/34064434/2704169
+   * @param text
+   * @returns {string}
+   */
+  function unescape(text) {
+
+    return domParser
+      .parseFromString(text, "text/html")
+      .documentElement
+      .textContent;
   }
 
   /**
@@ -280,7 +296,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
     $('<td>', {}).append($('<input>', {
       type: 'text',
       class: 'h5peditor-text',
-      value: row.rowText,
+      value: unescape(row.rowText),
       placeholder: H5PEditor.t('H5PEditor.Rubric', 'criteriaTopic', {})
     })).append(this.generateTableRowButtonsHtml(row)).appendTo(tr);
 
@@ -303,7 +319,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
     }).append($('<input>', {
       type: 'text',
       class: 'h5peditor-text',
-      value: column.columnText,
+      value: unescape(column.columnText),
       placeholder: H5PEditor.t('H5PEditor.Rubric', 'columnHeading', {})
     })).append(this.generateTableColumnHeadingButtonsHtml(column));
   };
@@ -327,7 +343,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
     }).append($('<textarea>', {
       rows: 4,
       placeholder: H5PEditor.t('H5PEditor.Rubric', 'editMe', {})
-    }).val(text));
+    }).val(unescape(text)));
   };
 
   /**

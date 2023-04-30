@@ -13,6 +13,10 @@ Rubrics can be used to assess a variety of different assignments, including essa
 group projects. They are beneficial for both instructors and students as they provide an objective and transparent way
 to assess student work, making the grading process more fair and consistent.
 
+## Development
+
+Install dependencies and run the linter by typing `npm ruin lint`.
+
 ## License
 
 MIT License
