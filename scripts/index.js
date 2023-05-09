@@ -112,7 +112,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
   /**
    * Tries to find element within an array.
    * Uses native Array.find, if available.
-   * Uses abstract comparsion operator (e.g. ==).
+   * Uses abstract comparison operator (e.g. ==).
    * @param  {array} elements An array ob objects
    * @param  {mixed} key      Key to use for comparison
    * @param  {mixed} value    Value to use for comparison
@@ -370,6 +370,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
           'class': 'help-button',
           'target': '_blank',
           'title': H5PEditor.t('H5PEditor.Rubric', 'additionalInformation', {}),
+          'role': 'button',
           'aria-disabled': 'false',
           'aria-label': H5PEditor.t('H5PEditor.Rubric', 'additionalInformation', {}),
           'on': {
@@ -389,6 +390,7 @@ H5PEditor.widgets.rubric = H5PEditor.Rubric = (function ($, JoubelUI) {
           'class': 'help-button',
           'target': '_blank',
           'title': H5PEditor.t('H5PEditor.Rubric', 'contentHelpPage', {}),
+          'role': 'button',
           'aria-disabled': 'false',
           'aria-label': H5PEditor.t('H5PEditor.Rubric', 'contentHelpPage', {})
         })
